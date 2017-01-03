@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "start": "./src/bin/node.start.sh"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "pg": "^6.1.2",
+    "restify": "^4.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-es2016": "^6.16.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "babel-preset-stage-3": "^6.17.0",
+    "babel-register": "^6.18.0",
+    "nodemon": "^1.11.0"
+  }
+}

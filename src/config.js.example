@@ -1,0 +1,16 @@
+/**
+ * Config template file
+ *
+ * Create a copy called config.js and provide real values.
+ */
+
+let config = {
+    database: {
+        host: "/var/run/postgresql",
+        port: 5432,
+        user: "cadastre",
+        database: "cadastre"
+    }
+};
+
+export default config;
