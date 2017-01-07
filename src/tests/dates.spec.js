@@ -18,7 +18,8 @@ describe("/dates", function() {
                         throw err;
                     }
 
-                    res.body.should.be.an('array');
+                    res.body.should.be.an("array");
+                    res.body[0].should.have.a.property("valid_at");
                     done();
                 });
         });

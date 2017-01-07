@@ -1,9 +1,11 @@
 import restify from  "restify";
 import config from "./config";
-import query from "./common/database";
 import getDates from "./routes/dates";
 import getAdministrativeUnits from "./routes/administrative_units";
 import * as cadastralAreas from "./routes/cadastral_areas";
+import * as municipalities from "./routes/municipalities";
+import * as counties from "./routes/counties";
+import * as regions from "./routes/regions";
 
 const server = restify.createServer();
 server.use(restify.bodyParser());
@@ -15,6 +17,21 @@ server.get("/administrative_units", getAdministrativeUnits);
 server.get("/cadastral_areas/:code/:valid_at", cadastralAreas.get);
 server.post("/cadastral_areas/lookup", cadastralAreas.lookup);
 server.get("/cadastral_areas/:code/:valid_at/alike", cadastralAreas.getAlike);
+
+/* municipalities */
+server.get("/municipalities/:code/:valid_at", municipalities.get);
+server.post("/municipalities/lookup", municipalities.lookup);
+server.get("/municipalities/:code/:valid_at/alike", municipalities.getAlike);
+
+/* counties */
+server.get("/counties/:code/:valid_at", counties.get);
+server.post("/counties/lookup", counties.lookup);
+server.get("/counties/:code/:valid_at/alike", counties.getAlike);
+
+/* regions */
+server.get("/regions/:code/:valid_at", regions.get);
+server.post("/regions/lookup", regions.lookup);
+server.get("/regions/:code/:valid_at/alike", regions.getAlike);
 
 server.listen(config.server.port, function() {
     console.log(`listening on port ${config.server.port}`);
