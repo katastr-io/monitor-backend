@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "./src/bin/node.start.sh"
+    "start": "./src/bin/node.start.sh",
+    "test": "NODE_ENV=test mocha --compilers js:babel-core/register --recursive ./src/tests"
   },
   "dependencies": {
     "bluebird": "^3.4.7",
@@ -16,6 +17,10 @@
     "babel-preset-stage-2": "^6.18.0",
     "babel-preset-stage-3": "^6.17.0",
     "babel-register": "^6.18.0",
-    "nodemon": "^1.11.0"
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "supertest": "^2.0.1"
   }
 }

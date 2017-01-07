@@ -10,6 +10,9 @@ let config = {
         port: 5432,
         user: "cadastre",
         database: "cadastre"
+    },
+    server: {
+        port: 3000
     }
 };
 
