@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "build": "./src/bin/build.sh",
     "start": "./src/bin/node.start.sh",
     "test": "NODE_ENV=test mocha --compilers js:babel-core/register --recursive ./src/tests"
   },
