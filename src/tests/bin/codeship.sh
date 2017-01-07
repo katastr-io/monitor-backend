@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mv src/config.js.example src/config.js
+cp src/config.js.example src/config.js
 sed -i -e 's/5432/5436/' -e 's/\/var\/run\/postgresql/localhost/' -e 's/user: "cadastre"/user: "postgres"/' src/config.js
 
 psql -p 5436 -c "CREATE DATABASE cadastre"
