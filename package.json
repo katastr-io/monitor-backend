@@ -1,4 +1,9 @@
 {
+  "name": "katastralni-cz-monitor-backend",
+  "version": "1.0.0",
+  "description": "Landuse data monitor REST API",
+  "author": "Michal Zimmermann <zimmicz@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "build": "./src/bin/build.sh",
     "start": "./src/bin/node.start.sh",
