@@ -8,6 +8,9 @@ NODE_MODULES=$BASEDIR/../../node_modules
 rm -rf $DISTDIR/src
 rm -rf $DISTDIR/node_modules
 
+cp $BASEDIR/../../package.json $DISTDIR
+cp $BASEDIR/../../yarn.lock $DISTDIR
+
 $BASEDIR/../../node_modules/.bin/babel $SRCDIR -d $DISTDIR/src
 $BASEDIR/../../node_modules/.bin/babel $BASEDIR/../config.js.example -o $DISTDIR/src/config.js
 
