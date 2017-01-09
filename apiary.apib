@@ -28,7 +28,7 @@ Monitor is a simple landuse data visualization.
 
         [
             {
-                "date": '2016-01-01'
+                "valid_at": '2016-01-01'
             }
         ]
 
@@ -41,15 +41,107 @@ Monitor is a simple landuse data visualization.
 + Response 200 (application/json)
 
         {
-            "code": 123456,
-            "name": 'Židlochovice',
-            "date": '2016-01-01',
-            "stats": [{}]
+            "code": 603970,
+            "name": "Hradečná u Bílé Lhoty",
+            "valid_at": "2015-04-01",
+            "total_count": 758,
+            "total_area": 1987989,
+            "arable_land_count": 297,
+            "arable_land_area": 143,
+            "hop_garden_count": 0,
+            "hop_garden_area": 0,
+            "vineyard_count": 0,
+            "vineyard_area": 0,
+            "garden_count": 83,
+            "garden_area": 4,
+            "orchard_count": 3,
+            "orchard_area": 1,
+            "grassland_count": 103,
+            "grassland_area": 18,
+            "forest_count": 45,
+            "forest_area": 16,
+            "waterbody_count": 17,
+            "waterbody_area": 0,
+            "builtup_area_count": 81,
+            "builtup_area_area": 3,
+            "other_area_count": 129,
+            "other_area_area": 10,
+            "agriculture_land_count": 531,
+            "agriculture_land_area": 183,
+            "agriculture_land_count_ratio":0,
+            "agriculture_land_area_ratio": 0.009205282322990720773600,
+            "arable_land_count_ratio": 39.18205804749340369400,
+            "hop_garden_count_ratio": 0.00000000000000000000,
+            "vineyard_count_ratio": 0.00000000000000000000,
+            "garden_count_ratio": 10.94986807387862796800,
+            "orchard_count_ratio": 0.39577836411609498700,
+            "grassland_count_ratio": 13.58839050131926121400,
+            "forest_count_ratio": 5.93667546174142480200,
+            "waterbody_count_ratio": 2.24274406332453825900,
+            "builtup_area_count_ratio": 10.68601583113456464400,
+            "other_area_count_ratio": 17.01846965699208443300,
+            "arable_land_area_ratio": 72.16161658842176692100,
+            "hop_garden_area_ratio": 0.000000000000000000000000,
+            "vineyard_area_ratio": 0.000000000000000000000000,
+            "garden_area_ratio": 2.44458093077979807700,
+            "orchard_area_ratio": 0.68617079873178372700,
+            "grassland_area_ratio": 9.05578451389821573500,
+            "forest_area_ratio": 8.14058830305399074100,
+            "waterbody_area_ratio": 0.22535335960108431200,
+            "builtup_area_area_ratio": 1.92501065146738739500,
+            "other_area_area_ratio": 5.36089485404597309100,
+            "arable_land_area_average": 4830,
+            "hop_garden_area_average": 0,
+            "vineyard_area_average": 0,
+            "garden_area_average": 586,
+            "orchard_area_average": 4547,
+            "grassland_area_average": 1748,
+            "forest_area_average": 3596,
+            "waterbody_area_average": 264,
+            "builtup_area_area_average": 472,
+            "other_area_area_average": 826
         }
 
 ## Retrieve Similar Cadastral Areas [/cadastral_areas/{code}/similar]
 
-### Get Similar Cadastres [GET]
+### Get 10 Similar Cadastres [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "code": 123456,
+                "name": "Adamov"
+            },
+            {
+                "code": 7890123,
+                "name": "Olomouc"
+            }
+        ]
+
+## Find Cadastral Area [/cadastral_areas/lookup]
+
+### Lookup Cadastral Area By Code/Name [POST]
+
++ Request (application/json)
+
+        {
+            "query": "Adam",
+            "valid_at": "2015-01-01"
+        
+        }
+
++ Response 200 (application/json)
+
+        [
+            {
+                "code": 123456,
+                "name": "Adamov"
+            },
+            {
+                "code": 789012,
+                "name": "Adamovice"
+        ]
 
 + Response 200 (application/json)
 
