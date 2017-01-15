@@ -1,10 +1,11 @@
 #!/bin/bash
 
 HOMEDIR="/opt/katastr.io"
+COMMIT=$(git log --oneline | head -n 1 | cut -d ' ' -f 1)
 
 cd ~/clone
 
 npm install && \
 npm run build && \
-rsync -aqz ~/clone/dist/* mzimmer1@193.85.199.37:${HOMEDIR}/monitor-backend-new && \
-ssh mzimmer1@193.85.199.37 "rm -rf ${HOMEDIR}/monitor-backend/* && mv ${HOMEDIR}/monitor-backend-new/* ${HOMEDIR}/monitor-backend && rm -rf ${HOMEDIR}/monitor-backend-new"
+rsync -aqz ~/clone/dist/* codeship@193.85.199.37:${HOMEDIR}/monitor-backend-${COMMIT} && \
+ssh codeship@193.85.199.37 "find ${HOMEDIR} -maxdepth 1 -type d ! -name monitor-backend-${COMMIT} -name 'monitor-backend-*' -exec rm -rf '{}' \;"
