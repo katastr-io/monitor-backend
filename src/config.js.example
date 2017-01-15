@@ -8,8 +8,8 @@ let config = {
     database: {
         host: "/var/run/postgresql",
         port: 5432,
-        user: "cadastre",
-        database: "cadastre"
+        user: "katastrio",
+        database: "katastrio"
     },
     server: {
         port: 3000
