@@ -20,6 +20,7 @@ describe("/dates", function() {
 
                     res.body.should.be.an("array");
                     res.body[0].should.have.a.property("valid_at");
+		    res.body[0].should.have.a.property("repr");
                     done();
                 });
         });
