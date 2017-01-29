@@ -43,10 +43,6 @@ describe("/regions", function() {
                     res.body.should.have.a.property("builtup_area_area");
                     res.body.should.have.a.property("other_area_count");
                     res.body.should.have.a.property("other_area_area");
-                    res.body.should.have.a.property("agriculture_land_count");
-                    res.body.should.have.a.property("agriculture_land_area");
-                    res.body.should.have.a.property("agriculture_land_count_ratio");
-                    res.body.should.have.a.property("agriculture_land_area_ratio");
                     res.body.should.have.a.property("arable_land_count_ratio");
                     res.body.should.have.a.property("hop_garden_count_ratio");
                     res.body.should.have.a.property("vineyard_count_ratio");
@@ -95,6 +91,30 @@ describe("/regions", function() {
                     res.body.should.be.an("array");
                     res.body[0].should.have.a.property("code");
                     res.body[0].should.have.a.property("name");
+                    done();
+                });
+        });
+    });
+
+    describe("POST region progress in time", function() {
+        it("should return an object of values for the given region", (done) => {
+            request(app)
+                .post("/regions/116/progress")
+                .send({
+                    "start": "2015-01-01",
+                    "end": "2016-01-01"
+                })
+                .expect(200)
+                .end((err, res) => {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.body.should.be.an("object");
+                    res.body.should.have.a.property("code");
+                    res.body.should.have.a.property("name");
+                    res.body.should.have.a.property("total_count");
+                    res.body.total_count.should.be.an("array");
                     done();
                 });
         });
