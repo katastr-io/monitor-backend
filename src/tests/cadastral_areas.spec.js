@@ -161,4 +161,21 @@ describe("/cadastral_areas", function() {
                 });
         });
     });
+
+    describe("GET cadastral area geometry", function() {
+        it("should return a GeoJSON", (done) => {
+            request(app)
+                .get("/cadastral_areas/603970/geometry")
+                .expect(200)
+                .end((err, res) => {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.body.should.be.an("object");
+                    res.body.should.have.a.property("geom");
+                    done();
+                });
+        });
+    });
 });

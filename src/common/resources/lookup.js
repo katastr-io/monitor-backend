@@ -8,7 +8,7 @@ function lookup(resource) {
                 code,
                 name
             FROM api_monitor.${resource}_statistics
-            WHERE (name ILIKE $1 OR code::text ILIKE $1)
+            WHERE (name LIKE $1 OR code::text LIKE $1)
                 AND valid_at = $2;`
 
         return query(sql, values)

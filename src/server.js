@@ -16,24 +16,28 @@ server.get("/dates/", getDates);
 server.get("/administrative_units", getAdministrativeUnits);
 
 /* cadastral_areas */
+server.get("/cadastral_areas/:code/geometry", resources.geometry(AREA));
 server.get("/cadastral_areas/:code/:valid_at", resources.get(AREA));
 server.post("/cadastral_areas/lookup", resources.lookup(AREA));
 server.get("/cadastral_areas/:code/:valid_at/alike", resources.alike(AREA));
 server.post("/cadastral_areas/:code/progress", resources.progress(AREA));
 
 /* municipalities */
+server.get("/municipalities/:code/geometry", resources.geometry(MUNICIPALITY));
 server.get("/municipalities/:code/:valid_at", resources.get(MUNICIPALITY));
 server.post("/municipalities/lookup", resources.lookup(MUNICIPALITY));
 server.get("/municipalities/:code/:valid_at/alike", resources.alike(MUNICIPALITY));
 server.post("/municipalities/:code/progress", resources.progress(MUNICIPALITY));
 
 /* counties */
+server.get("/counties/:code/geometry", resources.geometry(COUNTY));
 server.get("/counties/:code/:valid_at", resources.get(COUNTY));
 server.post("/counties/lookup", resources.lookup(COUNTY));
 server.get("/counties/:code/:valid_at/alike", resources.alike(COUNTY));
 server.post("/counties/:code/progress", resources.progress(COUNTY));
 
 /* regions */
+server.get("/regions/:code/geometry", resources.geometry(REGION));
 server.get("/regions/:code/:valid_at", resources.get(REGION));
 server.post("/regions/lookup", resources.lookup(REGION));
 server.get("/regions/:code/:valid_at/alike", resources.alike(REGION));

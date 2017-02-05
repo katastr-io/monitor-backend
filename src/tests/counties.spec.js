@@ -161,4 +161,21 @@ describe("/counties", function() {
                 });
         });
     });
+
+    describe("GET county geometry", function() {
+        it("should return a GeoJSON", (done) => {
+            request(app)
+                .get("/counties/3100/geometry")
+                .expect(200)
+                .end((err, res) => {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.body.should.be.an("object");
+                    res.body.should.have.a.property("geom");
+                    done();
+                });
+        });
+    });
 });
